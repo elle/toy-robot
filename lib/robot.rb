@@ -1,27 +1,31 @@
-DIRECTIONS = [:north, :east, :south, :west]
-
 class Robot
-  attr_accessor :x, :y, :direction
+  attr_accessor :position
 
-  def initialize(x: 0, y: 0, direction: :north)
-    @x, @y, @direction = x, y, direction
+  def initialize(position: Position.new)
+    @position = position
+  end
+
+  def x
+    position.x
+  end
+
+  def y
+    position.y
+  end
+
+  def direction
+    position.direction
   end
 
   def to_s
     "X: #{x}, Y: #{y}, Direction: #{direction.capitalize}"
   end
 
-  def left
-    @direction = DIRECTIONS[index-1]
+  def turn_left
+    @position = position.left
   end
 
-  def right
-    @direction = DIRECTIONS[index+1]
-  end
-
-  private
-
-  def index
-    DIRECTIONS.index(direction)
+  def turn_right
+    @position = position.right
   end
 end

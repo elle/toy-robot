@@ -11,15 +11,13 @@ describe Robot do
     end
 
     it "sets position and direction" do
-      robot = Robot.new(x: 2, y: 2, direction: :south)
+      position = Position.new(x: 2, y: 2, direction: :south)
+      robot = Robot.new(position: position)
 
       assert_equal 2, robot.x
       assert_equal 2, robot.y
       assert_equal :south, robot.direction
     end
-
-    # describe "when non-existant direction"
-    # describe "when out of range coordinates"
   end
 
   describe "#to_s" do
@@ -31,19 +29,19 @@ describe Robot do
     end
   end
 
-  describe "#left" do
+  describe "#turn_left" do
     it "rotates to the left" do
       robot = Robot.new
-      robot.left
+      robot.turn_left
 
       assert_equal :west, robot.direction
     end
   end
 
-  describe "#right" do
+  describe "#turn_right" do
     it "rotates to the right" do
       robot = Robot.new
-      robot.right
+      robot.turn_right
 
       assert_equal :east, robot.direction
     end

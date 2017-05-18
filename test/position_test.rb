@@ -13,4 +13,22 @@ describe Position do
 
     assert_equal :north, position.direction
   end
+
+  describe "#left" do
+    it "rotates to the left" do
+      position = Position.new
+      position.left
+
+      assert_equal :west, position.direction
+    end
+  end
+
+  describe "#right" do
+    it "rotates to the right" do
+      position = Position.new
+      position.right
+
+      assert_equal :east, position.direction
+    end
+  end
 end
