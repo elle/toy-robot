@@ -5,9 +5,6 @@
 - https://codereview.stackexchange.com/questions/96181/robot-toy-simulator
 - https://leanpub.com/toyrobot
 
-
-## How to play
-
 ## Run the tests
 
 For individual test file:
@@ -18,3 +15,20 @@ To run all the tests:
 
   $ rake
 
+## How to play
+
+  $ ./bin/robot
+  $ report
+  $ move
+  $ report
+  $ exit
+
+## FIX
+
+- Fix `circular argument reference` warning
+- Fix an issue with bin script that doesn't place robot properly
+
+# Next to todo
+
+- Allow for custom board size (or do we really need that?)
+- Refactor so `Position` class uses named variables again
