@@ -1,15 +1,6 @@
 require_relative "test_helper"
 
 describe Game do
-  describe "#current_position" do
-    it "delegates to robot's position" do
-      robot = Robot.new
-      game = Game.new(robot: robot)
-
-      assert_equal game.current_position, robot.position
-    end
-  end
-
   describe "#place" do
     it "places a robot at specific location" do
       game = Game.new
@@ -35,7 +26,7 @@ describe Game do
     end
   end
 
-  describe "#reft" do
+  describe "#right" do
     it "rotates the robot to the right" do
       game = Game.new
 
