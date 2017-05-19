@@ -46,7 +46,7 @@ class Position
   end
 
   def positive_coordinates
-    x >= 0 && y >= 0
+    x.to_i >= 0 && y.to_i >= 0
   end
 
   def valid_direction
