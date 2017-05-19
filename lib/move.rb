@@ -1,5 +1,11 @@
+require "forwardable"
+
 class Move
   attr_reader :position
+
+  extend Forwardable
+
+  def_delegators :@position, :x, :y, :direction
 
   def initialize(position: position)
     @position = position
@@ -11,40 +17,24 @@ class Move
 
   private
 
-  def direction
-    position.direction
-  end
-
   def go_north
-    Position.new(
-      x: position.x,
-      y: position.y + 1,
-      f: position.direction
-    )
+    create_position(x, y + 1, direction)
   end
 
   def go_east
-    Position.new(
-      x: position.x + 1,
-      y: position.y,
-      f: position.direction
-    )
+    create_position(x + 1, y, direction)
   end
 
   def go_south
-    Position.new(
-      x: position.x,
-      y: position.y - 1,
-      f: position.direction
-    )
+    create_position(x, y - 1, direction)
   end
 
   def go_west
-    Position.new(
-      x: position.x - 1,
-      y: position.y,
-      f: position.direction
-    )
+    create_position(x - 1, y, direction)
+  end
+
+  def create_position(x,y,f)
+    Position.new(x: x, y: y, f: f)
   end
 end
 
