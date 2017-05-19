@@ -9,7 +9,7 @@ describe Board do
   end
 
   it "sets custom size" do
-    board = Board.new(height: 3, width: 4)
+    board = Board.new(3, 4)
 
     assert_equal 3, board.height
     assert_equal 4, board.width
