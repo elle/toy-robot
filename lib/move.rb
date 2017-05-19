@@ -17,19 +17,35 @@ class Move
   end
 
   def go_north
-    position.y = position.y + 1
+    Position.new(
+      x: position.x,
+      y: position.y + 1,
+      f: position.direction
+    )
   end
 
   def go_east
-    position.x = position.x + 1
+    Position.new(
+      x: position.x + 1,
+      y: position.y,
+      f: position.direction
+    )
   end
 
   def go_south
-    position.y = position.y - 1
+    Position.new(
+      x: position.x,
+      y: position.y - 1,
+      f: position.direction
+    )
   end
 
   def go_west
-    position.x = position.x - 1
+    Position.new(
+      x: position.x - 1,
+      y: position.y,
+      f: position.direction
+    )
   end
 end
 

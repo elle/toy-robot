@@ -6,10 +6,10 @@
 class Position
   DIRECTIONS = [:north, :east, :south, :west]
 
-  attr_accessor :x, :y, :direction
+  attr_accessor :x, :y, :f
 
-  def initialize(x: 0, y: 0, direction: :north)
-    @x, @y, @direction = x, y, direction
+  def initialize(x: 0, y: 0, f: :north)
+    @x, @y, @f = x, y, f
 
     # Consider adding a more useful error message
     if invalid?
@@ -26,6 +26,8 @@ class Position
   end
 
   private
+
+  alias_method :direction, :f
 
   def index
     DIRECTIONS.index(direction)

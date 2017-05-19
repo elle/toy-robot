@@ -24,7 +24,7 @@ describe Position do
     end
 
     it "sets a direction" do
-      position = Position.new(direction: :west)
+      position = Position.new(f: :west)
 
       assert_equal :west, position.direction
     end
@@ -39,7 +39,7 @@ describe Position do
 
     it "raises an error when direction does not exist" do
       assert_raises "Invalid!" do
-        Position.new(direction: :nodirection)
+        Position.new(f: :nodirection)
       end
     end
   end

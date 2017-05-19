@@ -3,7 +3,7 @@ require_relative "test_helper"
 describe Move do
   describe "#go" do
     it "moves north" do
-      position = Position.new(x: 0, y: 0, direction: :north)
+      position = Position.new(x: 0, y: 0, f: :north)
 
       Move.new(position: position).go
 
@@ -12,7 +12,7 @@ describe Move do
     end
 
     it "moves east" do
-      position = Position.new(x: 0, y: 0, direction: :east)
+      position = Position.new(x: 0, y: 0, f: :east)
 
       Move.new(position: position).go
 
@@ -21,7 +21,7 @@ describe Move do
     end
 
     it "moves south" do
-      position = Position.new(x: 0, y: 1, direction: :south)
+      position = Position.new(x: 0, y: 1, f: :south)
 
       Move.new(position: position).go
 
@@ -30,7 +30,7 @@ describe Move do
     end
 
     it "moves west" do
-      position = Position.new(x: 1, y: 1, direction: :west)
+      position = Position.new(x: 1, y: 1, f: :west)
 
       Move.new(position: position).go
 

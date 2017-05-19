@@ -11,12 +11,13 @@ describe ValidMove do
 
   context "when facing edge of board" do
     it "returns false" do
-      position = Position.new(x: 0, y: 0, direction: :south)
+      position = Position.new(x: 0, y: 0, f: :south)
       robot = Robot.new(position: position)
       board = Board.new
-      result = ValidMove.verify(robot: robot, board: board)
 
-      refute result
+      assert_raises "Invalid!" do
+        ValidMove.verify(robot: robot, board: board)
+      end
     end
   end
 end

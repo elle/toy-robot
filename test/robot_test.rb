@@ -11,7 +11,7 @@ describe Robot do
     end
 
     it "sets position and direction" do
-      position = Position.new(x: 2, y: 2, direction: :south)
+      position = Position.new(x: 2, y: 2, f: :south)
       robot = Robot.new(position: position)
 
       assert_equal 2, robot.x
