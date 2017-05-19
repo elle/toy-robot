@@ -1,4 +1,4 @@
-require "test_helper"
+require_relative "test_helper"
 
 describe ValidMove do
   context "when valid move" do

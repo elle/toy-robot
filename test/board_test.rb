@@ -1,4 +1,4 @@
-require "test_helper"
+require_relative "test_helper"
 
 describe Board do
   it "defaults to 5x5" do
