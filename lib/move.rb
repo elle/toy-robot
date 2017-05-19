@@ -7,7 +7,6 @@ class Move
 
   def go
     self.send "go_#{direction}"
-    position
   end
 
   private

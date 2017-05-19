@@ -19,6 +19,6 @@ class ValidMove
   private
 
   def new_position
-    @new_position = Move.new(position: robot.position).go
+    Move.new(position: robot.position).go
   end
 end
