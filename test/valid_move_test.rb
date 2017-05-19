@@ -7,6 +7,13 @@ describe ValidMove do
 
       assert result
     end
+
+    it "does not move robot" do
+      robot = Robot.new
+      result = ValidMove.verify(robot: robot, board: Board.new)
+
+      assert_equal 0, robot.y
+    end
   end
 
   context "when facing edge of board" do
