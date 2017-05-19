@@ -9,9 +9,9 @@ describe Position do
 
   context "#to_s" do
     it "returns a hash of attributes" do
-      hash = { x: 0, y: 0, f: :north }
+      arr = [ 0, 0, :north ]
 
-      assert_equal hash, Position.new.to_s
+      assert_equal arr, Position.new.to_s
     end
   end
 
@@ -32,7 +32,7 @@ describe Position do
     end
 
     it "sets a direction" do
-      position = Position.new(f: :west)
+      position = Position.new(0, 0, :west)
 
       assert_equal :west, position.direction
     end
@@ -41,13 +41,13 @@ describe Position do
   context "valdiations" do
     it "cannot have negative coordinates" do
       assert_raises "Invalid!" do
-        Position.new(x: -1)
+        Position.new(-1, 0, :north)
       end
     end
 
     it "raises an error when direction does not exist" do
       assert_raises "Invalid!" do
-        Position.new(f: :nodirection)
+        Position.new(0, 0, :nodirection)
       end
     end
   end

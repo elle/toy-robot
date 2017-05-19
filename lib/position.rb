@@ -8,7 +8,7 @@ class Position
 
   attr_accessor :x, :y, :f
 
-  def initialize(x: 0, y: 0, f: :north)
+  def initialize(x = 0, y = 0, f = :north)
     @x, @y, @f = x, y, f
 
     # Consider adding a more useful error message
@@ -18,7 +18,7 @@ class Position
   end
 
   def to_s
-    { x: x, y: y, f: f }
+    [ x, y, f ]
   end
 
   def left_direction

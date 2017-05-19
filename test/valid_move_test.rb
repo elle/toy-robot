@@ -18,7 +18,7 @@ describe ValidMove do
 
   context "when facing edge of board" do
     it "returns false" do
-      position = Position.new(x: 0, y: 0, f: :south)
+      position = Position.new(0, 0, :south)
       robot = Robot.new(position: position)
       board = Board.new
 

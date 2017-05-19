@@ -34,7 +34,7 @@ class Move
   end
 
   def create_position(x,y,f)
-    Position.new(x: x, y: y, f: f)
+    Position.new(x, y, f)
   end
 end
 
