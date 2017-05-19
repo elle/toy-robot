@@ -9,26 +9,32 @@
 
 For individual test file:
 
+```
   $ ruby test/robot.rb
+```
 
 To run all the tests:
 
+```
   $ rake
+```
 
 ## How to play
 
+```
   $ ./bin/robot
   $ report
   $ move
   $ report
   $ exit
+```
 
 ## FIX
 
 - Fix `circular argument reference` warning
 - Fix an issue with bin script that doesn't place robot properly
 
-# Next to todo
+# Next to do
 
 - Allow for custom board size (or do we really need that?)
 - Refactor so `Position` class uses named variables again
