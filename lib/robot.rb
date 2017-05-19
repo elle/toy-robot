@@ -5,27 +5,17 @@ class Robot
     @position = position
   end
 
-  def x
-    position.x
-  end
-
-  def y
-    position.y
-  end
-
-  def direction
-    position.direction
-  end
-
   def to_s
     "X: #{x}, Y: #{y}, Direction: #{direction.capitalize}"
   end
 
-  def turn_left
-    @position = position.left
-  end
+  private
 
-  def turn_right
-    @position = position.right
+  def method_missing(method, *args)
+    begin
+      position.send(method, *args)
+    rescue
+      super
+    end
   end
 end

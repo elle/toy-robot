@@ -28,22 +28,4 @@ describe Robot do
       assert_equal position, robot.to_s
     end
   end
-
-  describe "#turn_left" do
-    it "rotates to the left" do
-      robot = Robot.new
-      robot.turn_left
-
-      assert_equal :west, robot.direction
-    end
-  end
-
-  describe "#turn_right" do
-    it "rotates to the right" do
-      robot = Robot.new
-      robot.turn_right
-
-      assert_equal :east, robot.direction
-    end
-  end
 end
