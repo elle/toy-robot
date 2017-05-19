@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+Dir[File.expand_path("./lib/**/*.rb")].each { |f| require f }
+
+ACTIONS = %w(place left right report move)
+game = Game.new
+
+loop do
+  puts "What would you like to do?"
+  action, *params = gets.chomp.downcase.split
+
+  if action =~ /exit/
+    break
+  else
+
+    if ACTIONS.include? action
+      game.send action, *params
+    else
+      puts "I didn't get it. Please repeat"
+    end
+  end
+end
