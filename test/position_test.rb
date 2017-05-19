@@ -7,6 +7,14 @@ describe Position do
     end
   end
 
+  context "#to_s" do
+    it "returns a hash of attributes" do
+      hash = { x: 0, y: 0, f: :north }
+
+      assert_equal hash, Position.new.to_s
+    end
+  end
+
   context "Coordinates" do
     it "has defaults of south west corner" do
       position = Position.new

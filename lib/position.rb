@@ -17,6 +17,10 @@ class Position
     end
   end
 
+  def to_s
+    { x: x, y: y, f: f }
+  end
+
   def left_direction
     DIRECTIONS[index-1]
   end
