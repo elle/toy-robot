@@ -58,13 +58,13 @@ describe Move do
   context "when invalid move" do
     context "on bottom edge facing out" do
       it "remains in the same lcoation" do
-        # robot = Robot.new
-        # robot.place(0,0,"south")
-        # move = Move.new(robot: robot)
+        robot = Robot.new
+        robot.place(0,0,"south")
+        move = Move.new(robot: robot)
 
-        # move.go
+        move.go
 
-        # assert_equal 0, robot.y
+        assert_equal 0, robot.y
       end
     end
 
