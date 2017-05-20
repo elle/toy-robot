@@ -1,13 +1,13 @@
 class ValidMove
   class << self
-    def verify(robot: robot, board: board)
+    def verify(robot: Robot.new, board: Board.new)
       new(robot: robot, board: board).verify
     end
   end
 
   attr_reader :robot, :board
 
-  def initialize(robot: robot, board: board)
+  def initialize(robot: Robot.new, board: Board.new)
     @robot, @board = robot, board
   end
 

@@ -7,7 +7,7 @@ class Move
 
   def_delegators :@position, :x, :y, :direction
 
-  def initialize(position: position)
+  def initialize(position: Position.new)
     @position = position
   end
 

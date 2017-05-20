@@ -31,7 +31,6 @@ To run all the tests:
 
 ## FIX
 
-- Fix `circular argument reference` warning
 - Fix an issue with bin script that doesn't place robot properly
 
 # Next to do
