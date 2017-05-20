@@ -1,26 +1,21 @@
 class Robot
-  DIRECTIONS = [:north, :east, :south, :west]
+  attr_accessor :x, :y, :f, :position
 
-  attr_accessor :x, :y, :f
-
-  def initialize
-    @x = 0
-    @y = 0
+  def initialize(position = Position.new(0, 0))
+    @position = position
     @f = "north"
   end
 
-  def place(x,y,f)
-    @x = x
-    @y = y
-    @f = f
+  def x
+    position.x
   end
 
-  def move
-    case f
-    when "north" then @y = y + 1
-    when "east" then @x = x + 1
-    when "south" then @y = y - 1
-    when "west" then @x = x - 1
-    end
+  def y
+    position.y
+  end
+
+  def place(x,y,f)
+    @position = Position.new(x, y)
+    @f = f
   end
 end
