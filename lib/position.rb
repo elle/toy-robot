@@ -1,2 +1,2 @@
-class Position < Struct.new(:x, :y)
+class Position < Struct.new(:x, :y, :f)
 end
