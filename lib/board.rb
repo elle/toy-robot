@@ -1,5 +1,9 @@
-class Board < Struct.new(:height, :width)
-  def initialize(height=5, width=5)
-    super
+class Board
+  def width
+    5
+  end
+
+  def height
+    5
   end
 end

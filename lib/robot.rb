@@ -1,21 +1,26 @@
 class Robot
-  attr_accessor :position
+  DIRECTIONS = [:north, :east, :south, :west]
 
-  def initialize(position: Position.new)
-    @position = position
+  attr_accessor :x, :y, :f
+
+  def initialize
+    @x = 0
+    @y = 0
+    @f = "north"
   end
 
-  def to_s
-    "X: #{x}, Y: #{y}, Direction: #{direction.capitalize}"
+  def place(x,y,f)
+    @x = x
+    @y = y
+    @f = f
   end
 
-  private
-
-  def method_missing(method, *args)
-    begin
-      position.send(method, *args)
-    rescue
-      super
+  def move
+    case f
+    when "north" then @y = y + 1
+    when "east" then @x = x + 1
+    when "south" then @y = y - 1
+    when "west" then @x = x - 1
     end
   end
 end

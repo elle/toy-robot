@@ -1,41 +1,65 @@
 require_relative "test_helper"
 
 describe Move do
-  describe "#go" do
-    it "moves north" do
-      position = Position.new(0, 0, :north)
 
-      Move.new(position: position).go
+  it "has a robot" do
+    robot = Robot.new
+    move = Move.new(robot: robot)
 
-      assert 1, position.y
-      assert 0, position.x
+    assert_equal robot, move.robot
+  end
+
+  it "has a board" do
+    board = Board.new
+    move = Move.new(board: board)
+
+    assert_equal board, move.board
+  end
+
+  context "when valid move" do
+    describe "#go " do
+      it "goes north up on the y axis" do
+        move = Move.new
+        move.go
+
+        assert_equal 1, move.robot.y
+      end
     end
 
-    it "moves east" do
-      position = Position.new(0, 0, :east)
+    it "goes east up on the x axis" do
+      robot = Robot.new
+      robot.place(0,0,"east")
+      move = Move.new(robot: robot)
+      move.go
 
-      Move.new(position: position).go
-
-      assert 1, position.x
-      assert 0, position.x
+      assert_equal 1, move.robot.x
     end
 
-    it "moves south" do
-      position = Position.new(0, 1, :south)
+    it "goes south down on the y axis" do
+      robot = Robot.new
+      robot.place(1,1,"south")
+      move = Move.new(robot: robot)
+      move.go
 
-      Move.new(position: position).go
-
-      assert 0, position.y
-      assert 0, position.x
+      assert_equal 0, move.robot.y
     end
 
-    it "moves west" do
-      position = Position.new(1, 1, :west)
+    it "goes west down on the x axis" do
+      robot = Robot.new
+      robot.place(1,1,"west")
+      move = Move.new(robot: robot)
+      move.go
 
-      Move.new(position: position).go
+      assert_equal 0, move.robot.x
+    end
+  end
 
-      assert 1, position.y
-      assert 0, position.x
+  context "when invalid move" do
+    it "remains in the same lcoation" do
+      # robot = Robot.new
+      # robot.place(0,4,"north")
+      # move = Move.new(robot: robot)
+      # move.go_north
     end
   end
 end

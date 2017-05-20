@@ -1,31 +1,75 @@
 require_relative "test_helper"
 
 describe Robot do
-  context "when initialized" do
-    it "sets defaults" do
+  context "has defaults" do
+    it "has an x coordinate" do
       robot = Robot.new
-
       assert_equal 0, robot.x
-      assert_equal 0, robot.y
-      assert_equal :north, robot.direction
     end
 
-    it "sets position and direction" do
-      position = Position.new(2, 2, :south)
-      robot = Robot.new(position: position)
+    it "has a y coordinate"  do
+      robot = Robot.new
+      assert_equal 0, robot.y
+    end
 
-      assert_equal 2, robot.x
-      assert_equal 2, robot.y
-      assert_equal :south, robot.direction
+    it "faces a direction"  do
+      robot = Robot.new
+      assert_equal "north", robot.f
     end
   end
 
-  describe "#to_s" do
-    it "reports position" do
+  describe "#place" do
+    it "places a robot in a specific location" do
       robot = Robot.new
-      position = "X: 0, Y: 0, Direction: North"
+      robot.place(1,2,"south")
 
-      assert_equal position, robot.to_s
+      assert_equal 1, robot.x
+      assert_equal 2, robot.y
+      assert_equal "south", robot.f
+    end
+  end
+
+  describe "#move" do
+    it "moves a robot to a location" do
+      robot = Robot.new
+      robot.move
+
+      assert_equal 0, robot.x
+      assert_equal 1, robot.y
+      assert_equal "north", robot.f
+    end
+
+    it "moves east" do
+      robot = Robot.new
+      robot.place(0,0,"east")
+      robot.move
+
+
+      assert_equal 1, robot.x
+      assert_equal 0, robot.y
+      assert_equal "east", robot.f
+    end
+
+    it "moves south" do
+      robot = Robot.new
+      robot.place(1,1,"south")
+      robot.move
+
+
+      assert_equal 1, robot.x
+      assert_equal 0, robot.y
+      assert_equal "south", robot.f
+    end
+
+    it "moves west" do
+      robot = Robot.new
+      robot.place(1,1,"west")
+      robot.move
+
+
+      assert_equal 0, robot.x
+      assert_equal 1, robot.y
+      assert_equal "west", robot.f
     end
   end
 end

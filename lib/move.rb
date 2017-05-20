@@ -1,41 +1,35 @@
-require "forwardable"
+# Y
+# ^
+# |
+# * -- > X
 
 class Move
-  attr_reader :position
-
-  extend Forwardable
-
-  def_delegators :@position, :x, :y, :direction
-
-  def initialize(position: Position.new)
-    @position = position
+  attr_reader :robot, :board
+  
+  def initialize(robot: Robot.new, board: Board.new)
+    @robot = robot
+    @board = board
   end
 
   def go
-    self.send "go_#{direction}"
+    self.send :"go_#{robot.f}"
   end
 
   private
 
   def go_north
-    create_position(x, y + 1, direction)
+    robot.y += 1
   end
 
   def go_east
-    create_position(x + 1, y, direction)
+    robot.x += 1
   end
 
   def go_south
-    create_position(x, y - 1, direction)
+    robot.y -= 1
   end
 
   def go_west
-    create_position(x - 1, y, direction)
-  end
-
-  def create_position(x,y,f)
-    Position.new(x, y, f)
+    robot.x -= 1
   end
 end
-
-
