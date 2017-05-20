@@ -12,7 +12,9 @@ class Move
   end
 
   def go
-    self.send :"go_#{robot.f}"
+    if valid_move?
+      self.send :"go_#{robot.f}"
+    end
   end
 
   private
@@ -32,4 +34,11 @@ class Move
   def go_west
     robot.x -= 1
   end
+
+  def valid_move?
+    # new_position = (3,3) 
+    #   (0..board.height).include? new_position.y &&
+    #   (0..board.width).include? new_position.x
+  end
+
 end

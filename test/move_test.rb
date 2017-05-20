@@ -1,7 +1,6 @@
 require_relative "test_helper"
 
 describe Move do
-
   it "has a robot" do
     robot = Robot.new
     move = Move.new(robot: robot)
@@ -19,10 +18,12 @@ describe Move do
   context "when valid move" do
     describe "#go " do
       it "goes north up on the y axis" do
-        move = Move.new
+        robot = Robot.new
+        robot.place(0,0,"north")
+        move = Move.new(robot: robot)
         move.go
 
-        assert_equal 1, move.robot.y
+        assert_equal 1, robot.y
       end
     end
 
@@ -32,7 +33,7 @@ describe Move do
       move = Move.new(robot: robot)
       move.go
 
-      assert_equal 1, move.robot.x
+      assert_equal 1, robot.x
     end
 
     it "goes south down on the y axis" do
@@ -41,7 +42,7 @@ describe Move do
       move = Move.new(robot: robot)
       move.go
 
-      assert_equal 0, move.robot.y
+      assert_equal 0, robot.y
     end
 
     it "goes west down on the x axis" do
@@ -50,16 +51,23 @@ describe Move do
       move = Move.new(robot: robot)
       move.go
 
-      assert_equal 0, move.robot.x
+      assert_equal 0, robot.x
     end
   end
 
   context "when invalid move" do
-    it "remains in the same lcoation" do
-      # robot = Robot.new
-      # robot.place(0,4,"north")
-      # move = Move.new(robot: robot)
-      # move.go_north
+    context "on bottom edge facing out" do
+      it "remains in the same lcoation" do
+        # robot = Robot.new
+        # robot.place(0,0,"south")
+        # move = Move.new(robot: robot)
+
+        # move.go
+
+        # assert_equal 0, robot.y
+      end
     end
+
+    # context "on top edge facing out"
   end
 end
