@@ -1,9 +1,9 @@
 class Board
   def width
-    5
+    4
   end
 
   def height
-    5
+    4
   end
 end
