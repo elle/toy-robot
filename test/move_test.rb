@@ -21,6 +21,7 @@ describe Move do
         robot = Robot.new
         robot.place(0,0,"north")
         move = Move.new(robot: robot)
+
         move.go
 
         assert_equal 1, robot.y
@@ -31,6 +32,7 @@ describe Move do
       robot = Robot.new
       robot.place(0,0,"east")
       move = Move.new(robot: robot)
+
       move.go
 
       assert_equal 1, robot.x
@@ -40,6 +42,7 @@ describe Move do
       robot = Robot.new
       robot.place(1,1,"south")
       move = Move.new(robot: robot)
+
       move.go
 
       assert_equal 0, robot.y
@@ -49,6 +52,7 @@ describe Move do
       robot = Robot.new
       robot.place(1,1,"west")
       move = Move.new(robot: robot)
+
       move.go
 
       assert_equal 0, robot.x
@@ -68,6 +72,16 @@ describe Move do
       end
     end
 
-    # context "on top edge facing out"
+    context "on top edge facing out" do
+      it "remains in the same lcoation" do
+        robot = Robot.new
+        robot.place(4, 0, "east")
+        move = Move.new(robot: robot)
+
+        move.go
+
+        assert_equal 4, robot.x
+      end
+    end
   end
 end
