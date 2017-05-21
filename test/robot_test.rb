@@ -18,6 +18,14 @@ describe Robot do
     end
   end
 
+  describe "#to_s" do
+    it "returns position details" do
+      robot = Robot.new
+
+      assert_equal "0,0,north", robot.to_s
+    end
+  end
+
   describe "#place" do
     it "places a robot in a specific location" do
       robot = Robot.new

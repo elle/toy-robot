@@ -17,6 +17,10 @@ class Robot
     position.f
   end
 
+  def to_s
+    position.to_s
+  end
+
   def place(x,y,f)
     @position = Position.new(x, y, f)
   end
