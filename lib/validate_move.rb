@@ -14,6 +14,6 @@ class ValidateMove
   private
 
   def suggested_new_position
-    Move.new(position).go
+    Move.new(position: position).go
   end
 end
