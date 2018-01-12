@@ -1,12 +1,6 @@
 require_relative "test_helper"
 
 describe Position do
-   describe "DIRECTIONS" do
-    it "has 4 cardinal points" do
-      assert_equal [:north, :east, :south, :west], Position::DIRECTIONS
-    end
-  end
-
   it "defaults to x at 0" do
     position = Position.new
 
